@@ -1,12 +1,13 @@
-import React from 'react'
-import ProductList from './components/ProductList/ProductList';
+import React from 'react';
+
 
 const App = () => {
   return (
-    <div>
-      <ProductList />
+    <div className='overflow-hidden'>
+      react app
+
     </div>
-  )
+  );
 }
 
 export default App;
