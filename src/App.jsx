@@ -14,6 +14,9 @@ const App = () => {
   return (
     <div className='overflow-hidden'>
       <BrowserRouter>
+      <div className="bg-blue-500 text-white p-4">
+      Hello, Tailwind!
+    </div>
 
         <Routes>
           <Route path='/' element={<Home />} />
@@ -21,7 +24,7 @@ const App = () => {
           <Route path='/product/:id' element=
           {<ProductDetails />} />
         </Routes>
-        
+
         <Sidebar />
         <Footer />
         
