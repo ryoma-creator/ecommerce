@@ -14,7 +14,10 @@ const App = () => {
   return (
     <div className='overflow-hidden'>
       <BrowserRouter>
-      
+
+        <Header />
+        <Sidebar />
+        
         <Routes>
           <Route path='/' element={<Home />} />
            {/* / に対応するルートは、パラメータを必要としないため、特にid指定する必要はありません。 */}
@@ -22,7 +25,6 @@ const App = () => {
           {<ProductDetails />} />
         </Routes>
 
-        <Sidebar />
         <Footer />
         
       </BrowserRouter>

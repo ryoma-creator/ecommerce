@@ -11,11 +11,13 @@ import ProductProvider from './contexts/ProductContext.jsx';
 import SidebarProvider from './contexts/SidebarContext.jsx';
 
 createRoot(document.getElementById('root')).render(
-  <ProductProvider>
-    <StrictMode>
-      <App />
-    </StrictMode>
-  </ProductProvider>
+  <SidebarProvider>
+    <ProductProvider>
+      <StrictMode>
+        <App />
+      </StrictMode>
+    </ProductProvider>
+  </SidebarProvider>
 // "Reason for wrapping with `ProductProvider`:
 //  To make `ProductContext` available throughout the application."
 );
