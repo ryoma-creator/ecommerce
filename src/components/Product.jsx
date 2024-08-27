@@ -25,19 +25,22 @@ const Product = ({product}) => {
     <div>
         <div className='border border-[#e4e4e4] h-[300px] mb-4
         relative overflow-hidden group transition'>
-            <div className='w-full h-full flex justify-center
-            items-center'>
+            <div className='w-full h-full center-flex'>
                 {/* image */}
-                <div className='w-[200px] mx-auto flex
-                 justify-center items-center'>
+                <div className='w-[200px] mx-auto center-flex'>
                     <img
                        className='max-h-[160px] group-hover:scale-110
                        transition duration-300'
                        src={image} alt="" />
                 </div>
                 {/* button */}
-                <div>
-                    <button>Add to cart</button>
+                <div className='absolute top-0 right-0 bg-red-500
+                p-2 center-flex'>
+                    <button>
+                        <div>
+                            <BsPlus className='text-3xl' />
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
