@@ -7,6 +7,8 @@ import './index.css';
 import './output.css'; // Tailwind CSS を含むファイル
 // product provider
 import ProductProvider from './contexts/ProductContext.jsx';
+// sidebar provider
+import SidebarProvider from './contexts/SidebarContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <ProductProvider>
