@@ -24,12 +24,13 @@ const Home = () => {
           max-w-sm mx-auto md:max-w-none mad:mx-0'>
             {filteredProducts.map((product)=>{
               return (
-                <div 
-                className='w-full h-[300px] bg-pink-200 mb-4'
-                key={product.id}
-                >
-                  {product.title}
-                </div>
+                <Product product={product} key={product.id}/>
+                // <div 
+                // className='w-full h-[300px] bg-pink-200 mb-4'
+                // key={product.id}
+                // >
+                //   {product.title}
+                // </div>
               );
             })}
           </div>
