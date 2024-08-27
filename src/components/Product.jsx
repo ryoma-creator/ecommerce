@@ -23,6 +23,7 @@ const Product = ({product}) => {
 
   return (
     <div>
+        {/* group  */}
         <div className='border border-[#e4e4e4] h-[300px] mb-4
         relative overflow-hidden group transition'>
             <div className='w-full h-full center-flex'>
@@ -34,13 +35,22 @@ const Product = ({product}) => {
                        src={image} alt="" />
                 </div>
                 {/* button */}
-                <div className='absolute top-0 right-0 bg-red-500
-                p-2 center-flex'>
+                <div className='absolute top-6 -right-11 group-hover:right-5 bg-red-500/40
+                p-2 flex flex-col items-center justify-center gap-y-2
+                opacity-0 group-hover:opacity-100 transition-all duration-300'>
                     <button>
-                        <div>
+                        <div className='center-flex w-12 h-12 text-white
+                        bg-red-500 '>
                             <BsPlus className='text-3xl' />
                         </div>
                     </button>
+                    <Link
+                        to={'/'}
+                        className='center-flex w-12 h-12 bg-white
+                      text-primary drop-shadow-xl'
+                    >
+                        <BsEyeFill />
+                    </Link>
                 </div>
             </div>
         </div>

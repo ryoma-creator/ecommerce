@@ -14,10 +14,7 @@ const App = () => {
   return (
     <div className='overflow-hidden'>
       <BrowserRouter>
-      <div className="bg-blue-500 text-white p-4">
-      Hello, Tailwind!
-    </div>
-
+      
         <Routes>
           <Route path='/' element={<Home />} />
            {/* / に対応するルートは、パラメータを必要としないため、特にid指定する必要はありません。 */}
