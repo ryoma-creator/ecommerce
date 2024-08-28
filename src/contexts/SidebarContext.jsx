@@ -9,6 +9,9 @@ const [isOpen, setIsOpen] = useState(false);
 const handleClose = () => {
   setIsOpen(false);
 };
+
+// I will delete this context file if its only just for single useState.
+
   return (
     <SidebarContext.Provider value={{ isOpen, setIsOpen,
      handleClose }}>

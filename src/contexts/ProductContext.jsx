@@ -1,8 +1,7 @@
 import React, {createContext, useState, useEffect} from 'react';
 
-// create context
+// create context ➡️ For Sending Data from API to Home.jsx
 export const ProductContext = createContext();
-// Context を使ってdataを「elevator」のように下のcomponentに渡す。
 
 const ProductProvider = ({ children }) => {
     // product state

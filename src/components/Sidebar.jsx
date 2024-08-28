@@ -8,9 +8,13 @@ import { FiTrash2 } from 'react-icons/fi';
 import CartItem from '../components/CartItem';
 // import sidebar context
 import { SidebarContext } from '../contexts/SidebarContext';
+// import cart context
+import { CartContext } from '../contexts/CartContext';
+
 
 const Sidebar = () => {
   const { isOpen, setIsOpen, handleClose } = useContext(SidebarContext)
+  console.log(useContext(CartContext));
   return (
     // 30vw (30% of the viewport width).
     <div className={`${

@@ -4,6 +4,7 @@ import { ProductContext } from '../contexts/ProductContext';
 // import components
 import Product from '../components/Product';
 
+// Get Data from ProductContext(API Data) for Mapping.
 const Home = () => {
   // get products from product context
   const { products } = useContext(ProductContext);
