@@ -25,6 +25,7 @@ const Home = () => {
           max-w-sm mx-auto md:max-w-none mad:mx-0'>
             {filteredProducts.map((product)=>{
               return (
+                // In order to Edit Individual Mapping by another file(Product.jsx)
                 <Product product={product} key={product.id}/>
                 // <div 
                 // className='w-full h-[300px] bg-pink-200 mb-4'

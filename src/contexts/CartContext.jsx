@@ -9,7 +9,9 @@ export const CartProvider = ({ children }) => {
   
   // add to cart
   const addToCart = (product, id) => {
-    console.log(`item ${id} added to the cart`);
+    const newItem = { ...product, amount: 1}; 
+    console.log(newItem)
+    console.log(`item ${product.title} added to the cart`);
   }
 
   return (
