@@ -14,7 +14,9 @@ import { CartContext } from '../contexts/CartContext';
 
 const Sidebar = () => {
   const { isOpen, setIsOpen, handleClose } = useContext(SidebarContext)
-  console.log(useContext(CartContext));
+  // console.log(useContext(CartContext));
+  const { cart } = useContext(CartContext);
+  
   return (
     // 30vw (30% of the viewport width).
     <div className={`${
@@ -34,6 +36,7 @@ const Sidebar = () => {
           <IoMdArrowForward className='text-2xl'/>
         </div>
       </div>
+      <div>cart items</div>
     </div>
   );
 };
