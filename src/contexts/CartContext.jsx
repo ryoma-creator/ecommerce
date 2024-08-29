@@ -35,6 +35,12 @@ export const CartProvider = ({ children }) => {
   const existingItem = cart.find((item) => {
       return item.id === id;
     });
+
+    // remove all from cart
+  const removeFromCart = (id) => {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+  };
     
   if (existingItem) {
   //  if its existing item, just add amount   
@@ -57,7 +63,7 @@ export const CartProvider = ({ children }) => {
   console.log(cart)
 
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );

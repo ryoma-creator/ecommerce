@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 // import Link
 import { Link } from 'react-router-dom';
 // import icons
 import { IoMdClose, IoMdRemove, IoMdAdd } from 'react-icons/io';
+// import cart context
+import { CartContext } from '../contexts/CartContext'; 
 
 const CartItem = ({ item }) => {
+  use
+
   // destructure item
   const { id, image, category, title, price, amount } = item;
 
