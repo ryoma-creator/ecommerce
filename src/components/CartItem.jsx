@@ -7,7 +7,7 @@ import { IoMdClose, IoMdRemove, IoMdAdd } from 'react-icons/io';
 import { CartContext } from '../contexts/CartContext'; 
 
 const CartItem = ({ item }) => {
-  use
+  const { cart, addToCart, removeFromCart } = useContext(CartContext)
 
   // destructure item
   const { id, image, category, title, price, amount } = item;
@@ -32,7 +32,9 @@ const CartItem = ({ item }) => {
                       {title}
                     </Link>
                     {/* remove icon */}
-                    <div className='text-xl cursor-pointer'>
+                    <div 
+                    onClick={()=> removeFromCart(id)}
+                    className='text-xl cursor-pointer'>
                       <IoMdClose
                         className='text-gray-500 hover:text-red-500 transition'
                       />

@@ -36,11 +36,6 @@ export const CartProvider = ({ children }) => {
       return item.id === id;
     });
 
-    // remove all from cart
-  const removeFromCart = (id) => {
-    const newCart = cart.filter((item) => item.id !== id);
-    setCart(newCart);
-  };
     
   if (existingItem) {
   //  if its existing item, just add amount   
@@ -61,6 +56,12 @@ export const CartProvider = ({ children }) => {
     }
   };
   console.log(cart)
+
+  // remove all from cart
+  const removeFromCart = (id) => {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+  };
 
   return (
     <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
