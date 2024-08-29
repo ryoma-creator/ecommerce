@@ -2,7 +2,7 @@ import React from 'react';
 // import Link
 import { Link } from 'react-router-dom';
 // import icons
-import { IoMdClose } from 'react-icons/io';
+import { IoMdClose, IoMdRemove, IoMdAdd } from 'react-icons/io';
 
 const CartItem = ({ item }) => {
   // destructure item
@@ -35,7 +35,24 @@ const CartItem = ({ item }) => {
                 </div>
                    <div className='bg-pink-200 flex gap-x-2 h-[36px] text-sm'>
                       {/* quantity */}
-                      <div>quantity</div>
+                      <div className='flex flex-1 max-w-[100px]
+                      bg-blue-400 items-center h-full border
+                      text-primary font-medium'>
+                          {/* minus icon */}
+                          <div className='flex-1 center-flex cursor-pointer'>
+                            <IoMdRemove />
+                          </div>
+                          {/* amount */}
+                          <div className='center-flex px-2'>
+                            {amount}
+                          </div>
+                          {/* plus icon */}
+                          <div className='flex-1 center-flex
+                          cursor-pointer'>
+                            <IoMdAdd />
+                          </div>
+                      </div>
+
                       {/* item price */}
                       <div>item price</div>
                       {/* final price */}
