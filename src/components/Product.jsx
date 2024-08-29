@@ -12,7 +12,7 @@ import { CartContext } from '../contexts/CartContext';
 // This file purpose is Editing Mapping Individual Data from Home.jsx
 const Product = ({ product }) => {
   const { addToCart } = useContext(CartContext)
-  console.log(product);
+  // console.log(product);
 
 // destructure product
 // Take the properties and create variables with the same names.
@@ -35,7 +35,7 @@ const Product = ({ product }) => {
                     <img
                        className='max-h-[160px] group-hover:scale-110
                        transition duration-300'
-                       src={image} alt="" />
+                       src={image} alt="item image" />
                 </div>
                 {/* button */}
                 <div className='absolute top-6 -right-11 group-hover:right-5 bg-red-500/40

@@ -11,6 +11,17 @@ import Product from './components/Product';
 
 
 const App = () => {
+
+  // mock data for text
+  const mockItem = {
+    id: 1,
+    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    category: "men's clothing",
+    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    price: 109.95,
+    amount: 1, 
+  };
+
   return (
     <div className='overflow-hidden'>
       <BrowserRouter>
