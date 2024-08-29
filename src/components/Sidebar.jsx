@@ -15,7 +15,7 @@ import { CartContext } from '../contexts/CartContext';
 const Sidebar = () => {
   const { isOpen, setIsOpen, handleClose } = useContext(SidebarContext)
   // console.log(useContext(CartContext));
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
 
   return (
     // 30vw (30% of the viewport width).
@@ -42,6 +42,23 @@ const Sidebar = () => {
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
         })}
+      </div>
+      {/* sidebar bottom */}
+      <div className='flex flex-col gap-y-3 py-4 mt-4 bg-green-200'>
+          <div className='bg-pink-200 flex w-full justify-between items-center'>
+                  {/* total */}
+              <div className='uppercase font-semibold'>
+                  <span className='mr-2'>Total:</span>$ 1000
+              </div>
+                  {/* clear cart icon */}
+                  {/* -----!!! over 3 times, this Icon will be out of screen ------ */}
+              <div 
+              onClick={clearCart}
+              className='cursor-pointer py-4 bg-red-500
+              text-white w-12 h-12 center-flex text-xl'>
+                  <FiTrash2 />
+              </div>
+          </div>
       </div>
     </div>
   );
