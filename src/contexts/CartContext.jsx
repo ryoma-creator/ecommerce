@@ -74,8 +74,29 @@ const incrementCartItemQuantity = (id) => {
   addToCart(item,id);
 };
 
+// decrease amount
+const decrementCartItemQuantity = (id) => {
+  // const item = cart.find((item)=>(item.id === id));
+  // Math.max ➡️ Returns the largest number among the given values
+  const newCart = cart.map((item)=> 
+  item.id === id 
+  ? {...item, amount: Math.max(0, item.amount - 1)} 
+  : item
+);
+  setCart(newCart);
+}
+
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, incrementCartItemQuantity }}>
+    <CartContext.Provider 
+      value={{
+        cart,
+        addToCart,
+        removeFromCart, 
+        clearCart, 
+        incrementCartItemQuantity, 
+        decrementCartItemQuantity 
+      }}>
       {children}
     </CartContext.Provider>
   );
