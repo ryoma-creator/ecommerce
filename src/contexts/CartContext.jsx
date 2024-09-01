@@ -35,9 +35,14 @@ export const CartProvider = ({ children }) => {
       const totalPrice = cart.reduce((accumulator, item) => {
         return accumulator + item.price*item.amount;
       }, 0);
-      setTotal(totalPrice);
+      setTotal(parseFloat(totalPrice).toFixed(2));
     }
   },[cart]);
+
+{/* {`${parseFloat(price * amount).toFixed(
+    2
+  )}`} */}
+
   // ---------------Total-----------------
 
 
