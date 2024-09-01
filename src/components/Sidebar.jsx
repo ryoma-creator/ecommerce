@@ -38,7 +38,9 @@ const Sidebar = () => {
         </div>
       </div>
       
-      <div>
+      {/* h-640→can not display all */}
+      <div className='bg-pink-200 flex-col gap-y-2 h-[420px] lg:h-[440px] 
+      overflow-y-auto overflow-x-hidden border-b'>
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
         })}
