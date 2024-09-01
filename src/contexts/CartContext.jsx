@@ -14,9 +14,11 @@ export const CartProvider = ({ children }) => {
   // item amount state
   const [itemAmount, setItemAmount] = useState(0);
   // total price state
-  const [total, setTotal] = (0);
+  const [total, setTotal] = useState(0);
 
 
+  // ---------------Total-----------------
+  // total amount
   // update item count amount/Quantity number (header.jsx red color number)
   useEffect(()=>{
     if (cart) {
@@ -26,6 +28,21 @@ export const CartProvider = ({ children }) => {
       setItemAmount(amount);
     } 
   },[cart]);
+
+  // total price
+  useEffect(()=>{
+    if (cart) {
+      const totalPrice = cart.reduce((accumulator, item) => {
+        return accumulator + item.price*item.amount;
+      }, 0);
+      setTotal(totalPrice);
+    }
+  },[cart]);
+  // ---------------Total-----------------
+
+
+
+  // ---------------storage-----------------
 
   // 初期rendering時に localStorage からカートを取得
   useEffect(() => {
@@ -39,7 +56,7 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
-
+  // ---------------storage-----------------
 
   // add to cart
   const addToCart = (product, id) => {
@@ -122,7 +139,8 @@ const decrementCartItemQuantity = (id) => {
         clearCart, 
         incrementCartItemQuantity, 
         decrementCartItemQuantity,
-        itemAmount 
+        itemAmount,
+        total
       }}>
       {children}
     </CartContext.Provider>
