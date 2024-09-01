@@ -15,7 +15,7 @@ import { CartContext } from '../contexts/CartContext';
 const Sidebar = () => {
   const { isOpen, setIsOpen, handleClose } = useContext(SidebarContext)
   // console.log(useContext(CartContext));
-  const { cart, clearCart } = useContext(CartContext);
+  const { cart, clearCart, total } = useContext(CartContext);
 
   return (
     // 30vw (30% of the viewport width).
@@ -50,7 +50,7 @@ const Sidebar = () => {
           <div className='bg-pink-200 flex w-full justify-between items-center'>
                   {/* total */}
               <div className='uppercase font-semibold'>
-                  <span className='mr-2'>Total:</span>$ 1000
+                  <span className='mr-2'>Total:</span>$ {total}
               </div>
                   {/* clear cart icon */}
                   {/* -----!!! over 3 times, this Icon will be out of screen ------ */}
