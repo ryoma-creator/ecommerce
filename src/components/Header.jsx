@@ -15,12 +15,25 @@ const Header = () => {
   const [isActive, setIsActive] = useState(false);
   const {isOpen, setIsOpen} = useContext(SidebarContext);
   const {itemAmount} = useContext(CartContext);
+
   // event Listener
-  useEffect(()=>{
-    
-  });
+  useEffect(() => {
+    // 60 = 60px (The default unit of measurement is px)
+    const handleScroll = () => {
+      setIsActive(window.scrollY > 60);
+    };
+    //Using `removeEventListener` is necessary instead of just 
+    // toggling true/false to properly clean up and prevent memory leaks 
+    // when the component unmounts.
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className={`${isActive ? 'bg-pink-200' : 'bg-blue-300'}`}>
+   // The target element of the event Listener
+    <header className={`${
+      isActive ? 'bg-pink-200' : 'bg-blue-300'
+    } fixed w-full z-10 transition-all`}>
       <div className='container mx-auto flex items-center
       justify-between h-full'>
           {/* Logo */}
