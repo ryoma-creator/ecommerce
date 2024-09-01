@@ -11,8 +11,21 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   // cart state
   const [cart, setCart] = useState([]);
-  
+  // item amount state
+  const [itemAmount, setItemAmount] = useState(0);
+  // total price state
+  const [total, setTotal] = (0);
 
+
+  // update item count amount/Quantity number (header.jsx red color number)
+  useEffect(()=>{
+    if (cart) {
+      const amount = cart.reduce((accumulator, item) => {
+        return accumulator + item.amount;
+      }, 0);
+      setItemAmount(amount);
+    } 
+  },[cart]);
 
   // 初期rendering時に localStorage からカートを取得
   useEffect(() => {
@@ -36,7 +49,6 @@ export const CartProvider = ({ children }) => {
       return item.id === id;
     });
 
-    
   if (existingItem) {
   //  if its existing item, just add amount   
     //  This map make the necessary updates
@@ -83,6 +95,20 @@ const decrementCartItemQuantity = (id) => {
   ? {...item, amount: Math.max(0, item.amount - 1)} 
   : item
 );
+//---------Choose from ① or ② by your preference and remove comment out-------------
+// ①
+// If you want to automatically remove items 
+// when the quantity reaches 0, use the following code
+  // const updatedItem = newCart.find(item => item.id === id);
+  // if (updatedItem && updatedItem.amount === 0) {
+  //   removeFromCart(id);
+  // } else {
+  //   setCart(newCart);
+  // }
+  // };
+// ②
+// If you want to display 0 and give the user a choice,
+// use the following code.
   setCart(newCart);
 }
 
@@ -95,7 +121,8 @@ const decrementCartItemQuantity = (id) => {
         removeFromCart, 
         clearCart, 
         incrementCartItemQuantity, 
-        decrementCartItemQuantity 
+        decrementCartItemQuantity,
+        itemAmount 
       }}>
       {children}
     </CartContext.Provider>
