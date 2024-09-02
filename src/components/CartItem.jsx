@@ -47,8 +47,9 @@ const CartItem = ({ item }) => {
                       text-primary font-medium'>
                           {/* minus icon */}
                           <div 
-                          onClick={()=>decrementCartItemQuantity(id,title,price)}
-                          className='flex-1 center-flex cursor-pointer'>
+                          onClick={()=>decrementCartItemQuantity(id)}
+                          className='flex-1 center-flex cursor-pointer
+                          h-full'>
                             <IoMdRemove />
                           </div>
                           {/* amount */}
@@ -59,7 +60,7 @@ const CartItem = ({ item }) => {
                           <div
                           onClick={()=>incrementCartItemQuantity(id)}
                           className='flex-1 center-flex
-                          cursor-pointer'>
+                          cursor-pointer h-full'>
                             <IoMdAdd />
                           </div>
                       </div>
@@ -68,7 +69,8 @@ const CartItem = ({ item }) => {
                       <div className='flex-1 flex items-center justify-around'>$ {price}</div>
                       {/* final price */}
                       {/* .toFixed(2) ➡️ make the price at 2 decimal(小数点以下2桁まで表示) */}
-                      {/* parseFloat()➡️ A number with a decimal point(小数点). */}
+                      {/* parseFloat()➡️ By using parseFloat(total),
+                       you can safely avoid errors in case total is a string. */}
                       <div className='flex-1 flex justify-end items-center
                       text-primary font-medium'>
                         {`${parseFloat(price * amount).toFixed(

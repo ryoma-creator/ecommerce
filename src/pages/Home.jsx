@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { ProductContext } from '../contexts/ProductContext';
 // import components
 import Product from '../components/Product';
+import Hero from '../components/Hero';
 
 // Get Data from ProductContext(API Data) for Mapping.
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
   console.log(filteredProducts)
   return (
     <div>
+      <Hero />
       <section className='py-16'>
         <div className='container mx-auto'>
           <div className='grid grid-cols-1 md:grid-cols-2

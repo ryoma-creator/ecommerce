@@ -32,7 +32,7 @@ const Header = () => {
   return (
    // The target element of the event Listener
     <header className={`${
-      isActive ? 'bg-pink-200' : 'bg-blue-300'
+      isActive ? 'bg-white py-4 shadow-md' : 'bg-none py-6'
     } fixed w-full z-10 transition-all`}>
       <div className='container mx-auto flex items-center
       justify-between h-full'>

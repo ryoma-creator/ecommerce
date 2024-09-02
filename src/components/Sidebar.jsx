@@ -22,7 +22,8 @@ const Sidebar = () => {
     <div className={`${
       isOpen ? 'right-0' : '-right-full'
   } w-full bg-white fixed top-0 h-full
-    shadow-2xl md:w-[35vw] xl:max-w-[30vw]  z-20 px-4 lg:px-[35px]`}>
+    shadow-2xl md:w-[35vw] xl:max-w-[30vw]  z-20 px-4 lg:px-[35px] 
+    transition-all duration-300`}>
       {/* transition-all
     duration-300 after edit, give it back to ⇧ */}
       <div className='flex items-center justify-between py-6
@@ -38,19 +39,19 @@ const Sidebar = () => {
         </div>
       </div>
       
-      {/* h-640→can not display all */}
-      <div className='bg-pink-200 flex-col gap-y-2 h-[420px] lg:h-[440px] 
+      {/* h-640→can not display all → change to "vh" */}
+      <div className='flex-col gap-y-2 h-[70vh] max-h-[440px]
       overflow-y-auto overflow-x-hidden border-b'>
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
         })}
       </div>
       {/* sidebar bottom */}
-      <div className='flex flex-col gap-y-3 py-4 mt-4 bg-green-200'>
-          <div className='bg-pink-200 flex w-full justify-between items-center'>
+      <div className='flex flex-col gap-y-3 py-4 mt-4'>
+          <div className='flex w-full justify-between items-center'>
                   {/* total */}
               <div className='uppercase font-semibold'>
-                  <span className='mr-2'>Total:</span>$ {total}
+                  <span className='mr-2'>Total:</span>$ {parseFloat(total).toFixed(2)}
               </div>
                   {/* clear cart icon */}
                   {/* -----!!! over 3 times, this Icon will be out of screen ------ */}
@@ -61,6 +62,20 @@ const Sidebar = () => {
                   <FiTrash2 />
               </div>
           </div>
+          <Link
+            to='/'
+            className='bg-gray-200 center-flex p-4 text-primary
+            w-full font-medium'
+          >
+            View cart
+          </Link>
+          <Link
+            to='/'
+            className='bg-primary center-flex p-4 text-white
+            w-full font-medium'
+          >
+            Checkout
+          </Link>
       </div>
     </div>
   );

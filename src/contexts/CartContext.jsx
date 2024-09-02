@@ -21,7 +21,7 @@ export const CartProvider = ({ children }) => {
   // total amount
   // update item count amount/Quantity number (header.jsx red color number)
   useEffect(()=>{
-    if (cart) {
+    if (cart.length > 0) {
       const amount = cart.reduce((accumulator, item) => {
         return accumulator + item.amount;
       }, 0);
@@ -31,11 +31,11 @@ export const CartProvider = ({ children }) => {
 
   // total price
   useEffect(()=>{
-    if (cart) {
+    if (cart.length > 0) {
       const totalPrice = cart.reduce((accumulator, item) => {
         return accumulator + item.price*item.amount;
       }, 0);
-      setTotal(parseFloat(totalPrice).toFixed(2));
+      setTotal(totalPrice);
     }
   },[cart]);
 
