@@ -28,6 +28,7 @@ export default {
       colors: {
         primary: '#222222',
         secondary: '#F5E6E0',
+        accent: '#A01450',
       },
       backgroundImage: {
         hero: "url('./img/bg_hero.svg')",

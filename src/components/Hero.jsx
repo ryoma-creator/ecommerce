@@ -6,14 +6,62 @@ import AiModelImg2 from '../img/Ai_model2.png';
 import { Link } from 'react-router-dom';
 // import pictures with motion
 import { AnimatedComponent } from '../animations/variants';
+// import motion
+import { motion } from 'framer-motion';
 
 
 // backgroundImage: {
 //   hero: "url('./img/bg_hero.svg')",
 const Hero = () => {
-  const items = [
-    { id: 1, src: AiModelImg, alt: 'Anime style girl with pink hair' },
-  ];
+    const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2,
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { x: -100, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 20,
+        duration: 0.8,
+      }
+    }
+    };
+
+// AUTUMN SALE STYLISH WOMENS variants
+const titleVariants = {
+  hidden: { x: 100, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.3,  
+      duration: 2  
+    }
+  }
+};
+
+// SALE !important to give attention from customer mostly
+const titleSaleVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      delay: 2,  
+      duration: 4  
+    }
+  }
+};
 
   return (
     <section className='bg-pink-200 h-[800px]
@@ -21,32 +69,43 @@ const Hero = () => {
       <div className="container mx-auto flex justify-around
       h-full">
         {/* text */}
-        <div className='flex flex-col justify-center'>
+        <motion.div 
+          className='flex flex-col justify-center
+          variants={containerVariants}'
+          initial='hidden'
+          animate='visible'
+        >
           {/* pre-title */}
-          <div className='font-semibold flex items-center
-          uppercase'>
+          <motion.div className='font-semibold flex items-center
+          uppercase' variants={itemVariants}>
               <div className='w-10 h-[2px] bg-red-500 mr-3 self-center'></div>
               New Trend
-          </div>
+          </motion.div>
           {/* title */}
-          <h1 className='text-[70px] leading-[1.1]
-          font-light mb-4'>
-            AUTUMN SALE STYLISH <br />
+          <motion.h1 
+          className='text-[70px] leading-[1.1]
+          font-light mb-4'
+          variants={titleVariants}
+          >
+            AUTUMN <motion.span className='font-bold text-[80ox] text-accent' variants={titleSaleVariants}>SALE</motion.span> STYLISH <br />
            <span className='font-semibold'>WOMENS</span>
-          </h1>
+          </motion.h1>
+
+          <motion.div variants={itemVariants}>
           <Link
             to={'/'}
             className='self-start uppercase font-semibold
-            border-b-2 border-primary'
+            border-b-2 border-primary' 
             >Discover More</Link>
-        </div>
+          </motion.div>
+
+        </motion.div>
         {/* image */}
         <div className='hidden lg:inline-block'>
           <AnimatedComponent
              image1={AiModelImg} 
              image2={AiModelImg2}           
           />
-       
           {/* <img src={WomanImg} alt="" /> */}
         </div>        
       </div>
