@@ -1,13 +1,20 @@
 import React from 'react';
 // import images
-import WomanImg from '../img/woman_hero.png';
+import AiModelImg from '../img/Ai_model.png';
+import AiModelImg2 from '../img/Ai_model2.png';
 // import Link
 import { Link } from 'react-router-dom';
+// import pictures with motion
+import { AnimatedComponent } from '../animations/variants';
 
-// tailwind.config
+
 // backgroundImage: {
 //   hero: "url('./img/bg_hero.svg')",
 const Hero = () => {
+  const items = [
+    { id: 1, src: AiModelImg, alt: 'Anime style girl with pink hair' },
+  ];
+
   return (
     <section className='bg-pink-200 h-[800px]
     bg-hero bg-no-repeat bg-cover bg-center py-24'>
@@ -34,8 +41,13 @@ const Hero = () => {
             >Discover More</Link>
         </div>
         {/* image */}
-        <div className='hidden lg:block'>
-          <img src={WomanImg} alt="" />
+        <div className='hidden lg:inline-block'>
+          <AnimatedComponent
+             image1={AiModelImg} 
+             image2={AiModelImg2}           
+          />
+       
+          {/* <img src={WomanImg} alt="" /> */}
         </div>        
       </div>
     </section>

@@ -15,7 +15,7 @@ import { CartContext } from '../contexts/CartContext';
 const Sidebar = () => {
   const { isOpen, setIsOpen, handleClose } = useContext(SidebarContext)
   // console.log(useContext(CartContext));
-  const { cart, clearCart, total } = useContext(CartContext);
+  const { cart, clearCart, total, itemAmount } = useContext(CartContext);
 
   return (
     // 30vw (30% of the viewport width).
@@ -30,7 +30,7 @@ const Sidebar = () => {
       border-b'>
         {/* icon */}
         <div className='uppercase text-sm
-        font-semibold'>Shopping Bag (0)</div>
+        font-semibold'>Shopping Bag ({itemAmount})</div>
 
         <div
          onClick={handleClose}
