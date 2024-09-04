@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 // BsEyeFill is an "eye" icon, usually used for purposes like "view details" or "preview."
 import { BsPlus, BsEyeFill } from 'react-icons/bs';
 import { CartContext } from '../contexts/CartContext';
+// import tap effect for button
+import Ripples from 'react-ripples';
+
 
 // The Data by Mapping from Home.jsx
 // Fake Store Api Data = product（the item map name）
@@ -38,15 +41,17 @@ const Product = ({ product }) => {
                        src={image} alt="item image" />
                 </div>
                 {/* button */}
-                <div className='absolute top-6 -right-11 group-hover:right-5 bg-red-500/40
+                <div className='absolute top-6 -right-11 group-hover:right-5 bg-accent/40
                 p-2 flex flex-col items-center justify-center gap-y-2
                 opacity-0 group-hover:opacity-100 transition-all duration-300'>
+                   <Ripples>
                     <button onClick={()=> addToCart(product, id)}>
                         <div className='center-flex w-12 h-12 text-white
-                        bg-red-500 '>
+                        bg-accent '>
                             <BsPlus className='text-3xl' />
                         </div>
                     </button>
+                    </Ripples>
                     <Link
                         to={`/product/${id}`}
                         className='center-flex w-12 h-12 bg-white
@@ -54,6 +59,7 @@ const Product = ({ product }) => {
                     >
                         <BsEyeFill />
                     </Link>
+                    
                 </div>
             </div>
         </div>

@@ -21,13 +21,13 @@ const Home = () => {
 
 // framer motion / animation for products on map
   const container = {
-    hidden: { opacity: 1, scale: 0 },
+    hidden: { opacity: 0, scale: 0 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
+        delayChildren: 3,
+        staggerChildren: 2
       }
     }
   };
@@ -39,6 +39,10 @@ const Home = () => {
       opacity: 1,
     },
     transition: {
+      type: 'spring',
+      stiffness: 100,
+      damping: 15,
+      delay:3,
       duration: 2  
     }
   };
@@ -46,19 +50,25 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      <motion.section 
-        className='py-16'
-        variants={container}
-        initial="hidden"
-        animate="visible">
+      <section> 
         <div className='container mx-auto'>
-          <div className='grid grid-cols-1 md:grid-cols-2
+          <motion.div 
+          className='grid grid-cols-1 md:grid-cols-2
           lg:grid-cols-4 xl:grid-cols-5 gap-[30px]
-          max-w-sm mx-auto md:max-w-none mad:mx-0'>
+          max-w-sm mx-auto md:max-w-none mad:mx-0'
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          >
             {filteredProducts.map((product)=>{
               return (
                 // In order to Edit Individual Mapping by another file(Product.jsx)
-                <Product product={product} key={product.id} variants={item}/>
+              <motion.div
+              className='py-16'
+              key={product.id} variants={item}
+              >
+                <Product product={product} />
+              </motion.div>
                 // <div 
                 // className='w-full h-[300px] bg-pink-200 mb-4'
                 // key={product.id}
@@ -67,9 +77,9 @@ const Home = () => {
                 // </div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
-      </motion.section>
+      </section>
     </div>
   )
 }

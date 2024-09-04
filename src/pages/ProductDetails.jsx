@@ -5,6 +5,10 @@ import { useParams } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
 // import product context
 import { ProductContext } from '../contexts/ProductContext';
+// import tap effect for button
+import Ripples from 'react-ripples';
+// import button Effect component
+import ButtonEffect from '../components/ButtonEffect'; 
 
 
 const ProductDetails = () => {
@@ -50,10 +54,12 @@ const ProductDetails = () => {
                 $ {parseFloat(price).toFixed(2)}
               </div>
               <p className='mb-8'>{description}</p>
-              <button onClick={()=> addToCart(product, product.id)}
+              <Ripples>
+              <ButtonEffect onClick={()=> addToCart(product, product.id)}
               className='bg-primary py-4 px-8 text-white'>
                 Add to cart
-              </button>
+              </ButtonEffect>
+              </Ripples>
             </div>
         </div>
         </div>

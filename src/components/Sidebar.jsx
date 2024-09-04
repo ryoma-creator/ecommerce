@@ -10,6 +10,10 @@ import CartItem from '../components/CartItem';
 import { SidebarContext } from '../contexts/SidebarContext';
 // import cart context
 import { CartContext } from '../contexts/CartContext';
+// import tap effect for button
+import Ripples from 'react-ripples';
+// import button Effect component
+import ButtonEffect from '../components/ButtonEffect'; 
 
 
 const Sidebar = () => {
@@ -55,27 +59,36 @@ const Sidebar = () => {
               </div>
                   {/* clear cart icon */}
                   {/* -----!!! over 3 times, this Icon will be out of screen ------ */}
-              <div 
+              <Ripples>
+              <ButtonEffect
               onClick={clearCart}
-              className='cursor-pointer py-4 bg-red-500
+              className='cursor-pointer py-4 bg-accent
               text-white w-12 h-12 center-flex text-xl'>
                   <FiTrash2 />
-              </div>
+              </ButtonEffect>
+              </Ripples>
           </div>
-          <Link
+          <Ripples>
+          <ButtonEffect
+            as={Link}
             to='/'
             className='bg-gray-200 center-flex p-4 text-primary
             w-full font-medium'
           >
             View cart
-          </Link>
-          <Link
+            
+          </ButtonEffect>
+          </Ripples>
+          <Ripples>
+          <ButtonEffect
+            as={Link}
             to='/'
             className='bg-primary center-flex p-4 text-white
             w-full font-medium'
           >
             Checkout
-          </Link>
+          </ButtonEffect>
+          </Ripples>
       </div>
     </div>
   );
