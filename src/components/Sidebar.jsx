@@ -13,7 +13,7 @@ import { CartContext } from '../contexts/CartContext';
 // import tap effect for button
 import Ripples from 'react-ripples';
 // import button Effect component
-import ButtonEffect from '../components/ButtonEffect'; 
+import ButtonEffect from './ButtonEffect'; 
 
 
 const Sidebar = () => {
