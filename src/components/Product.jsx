@@ -8,6 +8,7 @@ import { BsPlus, BsEyeFill } from 'react-icons/bs';
 import { CartContext } from '../contexts/CartContext';
 // import tap effect for button
 import Ripples from 'react-ripples';
+import ButtonEffect from './ButtonEffect';
 
 
 // The Data by Mapping from Home.jsx
@@ -45,12 +46,12 @@ const Product = ({ product }) => {
                 p-2 flex flex-col items-center justify-center gap-y-2
                 opacity-0 group-hover:opacity-100 transition-all duration-300'>
                    <Ripples>
-                    <button onClick={()=> addToCart(product, id)}>
+                    <ButtonEffect onClick={()=> addToCart(product, id)}>
                         <div className='center-flex w-12 h-12 text-white
                         bg-accent '>
                             <BsPlus className='text-3xl' />
                         </div>
-                    </button>
+                    </ButtonEffect>
                     </Ripples>
                     <Link
                         to={`/product/${id}`}

@@ -19,6 +19,7 @@ const ProductDetails = () => {
 
   // get the single product based on the id
   const product = products.find(item => {
+    // converting a string to a number type
     return item.id === parseInt(id);
   })
 
